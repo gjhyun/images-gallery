@@ -10,7 +10,8 @@ function App() {
   {
     /** word is part of state of this component. initial value is empty string */
   }
-
+  const [images, setImages] = useState([]);
+  console.log(images);
   const handleSearchSubmit = (e) => {
     {
       /** e is an event */
@@ -22,7 +23,7 @@ function App() {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        setImages([data, ...images]);
       })
       .catch((error) => {
         console.log(error);
